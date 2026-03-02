@@ -1,0 +1,45 @@
+.dashboard-container {
+  display: flex;
+  height: 120vh;
+  box-sizing: border-box;
+}
+.dashboard-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-left: 90px;
+    background-color: #f5f6fa;
+}
+.stats-row {
+  display: flex;
+  gap: 35px;
+  padding: 30px;
+  margin-top: 90px;
+}
+.chart-section {
+  width: 100%;
+  display: flex;
+}
+.task-section {
+  margin-top: 0px;
+  padding: 0 10px;
+  margin-left: 16px;
+}
+.task-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #232360;
+  margin-left:20px;
+}
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+/* .task-wrapper {
+  background: #F3F4F8;
+  padding: 20px;
+  border-radius: 18px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+} */

@@ -1,0 +1,157 @@
+.task-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 24px;
+  max-width: 900px;
+}
+
+.task-card {
+  background: #ffffff;
+  margin-top: 10px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;   /* changed */
+  gap: 40px;                     /* added */
+  overflow: hidden;
+  width: 78%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+/* LEFT SECTION */
+.task-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 24px;
+}
+
+/* Play Icon */
+.icon-play {
+  width: 48px;
+  height: 48px;
+  background: #4f46e5;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+}
+
+/* Start time section */
+.task-meta {
+  
+  padding: 14px 18px;
+  border-radius: 10px;
+  min-width: 110px;
+}
+
+.task-meta .start-label {
+  color: #000000;
+  font-size: 13px;
+  margin: 0 0 4px 0;
+}
+
+.time-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #374151;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* CONTENT SECTION */
+.task-center {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;   /* adds space between title & info */
+  margin-left: 10px;  /* adds space from time box */
+}
+
+.task-center h4 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.task-info-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.task-info-row a {
+  color: #4f46e5;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* RIGHT SECTION */
+.task-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;   /* reduced from 24px */
+  padding: 20px 24px;
+}
+
+/* Progress */
+.progress-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.progress-text {
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+}
+.progress-bar {
+  width: 160px;
+  height: 6px;
+  background: #e5e7eb;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.progress-section {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.progress-row {
+  display: flex;
+  align-items: center;
+  gap: 16px; 
+}
+.progress-fill {
+  height: 100%;
+  background: #4f46e5;
+  border-radius: 10px;
+}
+
+/* Reminder button */
+.reminder-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  background: #eef2ff;
+  color: #4f46e5;
+  padding: 8px 16px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.reminder-btn:hover {
+  background: #e0e7ff;
+}
