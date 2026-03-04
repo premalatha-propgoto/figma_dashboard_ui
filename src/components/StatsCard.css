@@ -18,18 +18,18 @@
   gap: 10px;
 }
 .stats-icon {
-  width: 28px;
-  height: 28px;
+  width: 34px;
+  height: 34px;
   opacity: 0.8;
 }
 .stats-title {
-  color: #6b7280;
-  font-size: 14px;
+  color: #8C97A8;
+  font-size: 16px;
   font-weight: 500;
 }
 .stats-number {
-  font-size: 20px;
-  font-weight: 600;
+  font-size: 22px;
+  font-weight: 700;
 }
 .stats-divider {
   border: none;
@@ -43,9 +43,10 @@
   margin-bottom: 8px;
 }
 .growth-sub {
-  color: #9ca3af;
-  font-weight: 400;
+  color: #768396;
+  font-weight: 500;
   margin-left: 6px;
+  font-size: 16px;
 }
 .stats-chart-row {
   display: flex;

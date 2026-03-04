@@ -1,9 +1,13 @@
 
 .sidebar {
-  width: 94px;
-  height: 1,024px;
-  background-color: #ffffff;
-  position: fixed;   
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 90px;
+  height: 100vh;
+  background: white;
+  border-right: 1px solid #ddd;
+  z-index: 100;
 }
 
 .logo-container {
@@ -61,4 +65,11 @@
 
 .menu-item.active .menu-icon {
   filter: brightness(0) invert(1);
+}
+
+
+@media (max-width: 900px) {
+  .sidebar {
+    width: 70px;
+  }
 }

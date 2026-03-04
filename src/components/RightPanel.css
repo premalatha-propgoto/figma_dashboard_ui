@@ -80,9 +80,10 @@
   opacity: 0.8;
 }
 .schedule-sub {
-  color: rgb(133, 211, 243);
+  color: #1EA7FF;
   font-size: 12px;
   margin: 8px 0;
+  font-weight: 500;
 }
 .schedule-title-row {
   display: flex;
@@ -93,9 +94,10 @@
   font-size: 16px;
 }
 .invite {
-  color: #69ceef;
+  color: #1EA7FF;
   font-size: 13px;
   cursor: pointer;
+  font-weight: 500;
 }
 .call-card {
   background: linear-gradient(135deg, #6d5dfc, #4f46e5);
@@ -309,32 +311,54 @@ hr {
   gap: 12px; 
 }
 .project-button{
-  background: #4f46e5;
+background: #4f46e5;
   color: white;
   border: none;
-  border-radius: 8px;
+  border-radius: 16px;
   padding: 8px 12px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 16px;
-  margin-right:50px;
+  width: 200px;      
+  height: 45px;   
 }
 .task-button {
   background: #4f46e5;
   color: white;
   border: none;
-  border-radius: 8px;
+  border-radius: 16px;
   padding: 8px 12px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 16px;
-  margin-right:50px;
+  width: 200px;      
+  height: 45px;      
 }
 
 .project-button {
   margin-bottom: 0; 
+}
+
+@media (max-width: 1200px) {
+  .right-panel {
+    width: 300px;
+  }
+
+  .dashboard-main {
+    padding-right: 320px;
+  }
+}
+
+@media (max-width: 900px) {
+  .right-panel {
+    display: none; /* hide right panel on mobile */
+  }
+
+  .dashboard-main {
+    padding-right: 0;
+  }
 }

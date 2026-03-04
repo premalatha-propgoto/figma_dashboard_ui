@@ -1,13 +1,13 @@
 import { useState } from "react";
 import "./Sidebar.css";
 
-import logo from "../assets/Group 10.png";
-import dashboardIcon from "../assets/Group 1.png";
-import taskIcon from "../assets/Group 3.png";
-import bookIcon from "../assets/Group 4.png";
-import settingsIcon from "../assets/Group 5.png";
-import sendIcon from "../assets/Group 6.png";
-import fileIcon from "../assets/Group 7.png";
+import logo from "../assets/Group 10.svg";
+import dashboardIcon from "../assets/Group 1.svg";
+import taskIcon from "../assets/Group 3.svg";
+import bookIcon from "../assets/Group 4.svg";
+import settingsIcon from "../assets/Group 5.svg";
+import sendIcon from "../assets/Vector.svg";
+import fileIcon from "../assets/Group 7.svg";
 
 function Sidebar() {
   const [active, setActive] = useState("dashboard");

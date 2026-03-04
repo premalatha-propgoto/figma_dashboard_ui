@@ -50,8 +50,9 @@
 
 .task-meta .start-label {
   color: #000000;
-  font-size: 13px;
+  font-size: 14px;
   margin: 0 0 4px 0;
+  font-weight: 500;
 }
 
 .time-row {
@@ -74,8 +75,8 @@
 .task-center h4 {
   margin: 0;
   font-size: 16px;
-  font-weight: 600;
-  color: #111827;
+  font-weight: 500;
+  color: #23235F;
 }
 
 .task-info-row {

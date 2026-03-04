@@ -2,8 +2,8 @@ import "./RightPanel.css";
 import React, { useState } from "react";
 import Modal from "./Modal";
 
-import gridIcon from "../assets/Group 1.png";
-import calendarIcon from "../assets/calender.png";
+import gridIcon from "../assets/Group 21.svg";
+import calendarIcon from "../assets/calender.svg";
 import callIcon from "../assets/call.png";
 
 import p1 from "../assets/profile 1.png";
@@ -152,36 +152,116 @@ function RightPanel({ projects = [] }) {
         onClose={() => setOpenProjectModal(false)}
         title="Create Project"
       >
-        <form>
+        <form
+          onSubmit={async (e) => {
+            e.preventDefault();
 
+            const name = e.target.name.value;
+            const description = e.target.description.value;
+
+            const created_by = localStorage.getItem("user_id");
+
+            if (!created_by) {
+              alert("User not logged in");
+              return;
+            }
+
+            const projectData = {
+              name,
+              description,
+              created_by,
+            };
+
+            await fetch("http://localhost:5000/api/create_projects", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(projectData),
+            });
+
+            setOpenProjectModal(false);
+          }}
+        >
           <label>Name</label>
-          <input type="text" />
+          <input type="text" name="name" required />
 
           <label>Description</label>
-          <textarea></textarea>
+          <textarea name="description"></textarea>
 
           <button type="submit" className="close-btn">
             Create Project
           </button>
         </form>
       </Modal>
+
       <Modal
         isOpen={openTaskModal}
         onClose={() => setOpenTaskModal(false)}
         title="Create Task"
       >
-        <form>
+        <form
+          onSubmit={async (e) => {
+            e.preventDefault();
 
+            const title = e.target.title.value;
+            const description = e.target.description.value;
+            const start_time = e.target.start_time.value;
+            const end_time = e.target.end_time.value;
+
+            if (!title) {
+              alert("Task title is required");
+              return;
+            }
+
+            const taskData = {
+              title,
+              description,
+              start_time,
+              end_time,
+            };
+
+            try {
+              const res = await fetch(
+                "http://localhost:5000/api/create_tasks",
+                {
+                  method: "POST",
+                  headers: { "Content-Type": "application/json" },
+                  body: JSON.stringify(taskData),
+                },
+              );
+
+              const data = await res.json();
+
+              if (res.ok) {
+                alert("Task created successfully");
+                setOpenTaskModal(false);
+              } else {
+                alert(data.message || "Failed to create task");
+              }
+            } catch (error) {
+              console.error("Error creating task:", error);
+            }
+          }}
+        >
           <label>Title</label>
-          <input type="text" />
+          <input type="text" name="title" required />
 
-           <label>Description</label>
-          <textarea></textarea>
+          <label>Description</label>
+          <textarea name="description"></textarea>
+
+          <label>Start Time</label>
+          <input type="datetime-local" name="start_time" />
+
+          <label>End Time</label>
+          <input type="datetime-local" name="end_time" />
 
           <label>Project</label>
-          <select>
+          <select name="project" required>
             {projects.length > 0 ? (
-              projects.map((p, i) => <option key={i}>{p}</option>)
+              projects.map((p) => (
+                <option key={p.title} value={p.title}>
+                  {p.name}
+                </option>
+              ))
             ) : (
               <option disabled>No projects available</option>
             )}

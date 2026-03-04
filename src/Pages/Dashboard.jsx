@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Sidebar from "../components/Sidebar";
 import Topbar from "../components/Topbar";
 import RightPanel from "../components/RightPanel";
@@ -12,6 +12,21 @@ import icon2 from "../assets/msg.png";
 import icon3 from "../assets/info.png";
 
 function Dashboard() {
+  const [projects, setProjects] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:5000/api/project_list", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.projects) {
+          setProjects(data.projects); 
+        }
+      })
+      .catch((err) => console.error("Error fetching projects:", err));
+  }, []);
+
   const chartData = [
     { month: "Jan", Completed: 130 },
     { month: "Feb", Completed: 0 },
@@ -21,7 +36,6 @@ function Dashboard() {
     { month: "Jun", Completed: 200 },
     { month: "Jul", Completed: 120 },
   ];
-
   const newTask = [
     { month: "Jan", New: 170 },
     { month: "Feb", New: 50 },
@@ -31,7 +45,6 @@ function Dashboard() {
     { month: "Jun", New: 200 },
     { month: "Jul", New: 150 },
   ];
-
   const projectDone = [
     { month: "Jan", Done: 8 },
     { month: "Feb", Done: 50 },
@@ -41,75 +54,72 @@ function Dashboard() {
     { month: "Jun", Done: 200 },
     { month: "Jul", Done: 120 },
   ];
-
   return (
     <div className="dashboard-container">
-      {/* Sidebar */}
       <Sidebar />
 
-      {/* Main Section */}
-    <div className="dashboard-main">
-        {/* Topbar */}
+      <div className="dashboard-main">
         <Topbar />
-        {/* Stats Cards */}
-      <div className="stats-row">
-        <StatsCard
-          icon={icon1}
-          title="Task Completed"
-          number="08"
-          growth="+12%"
-          growthColor="green"
-          chartColor="#5051F9"
-          data={chartData}
-        />
-        <StatsCard
-          icon={icon2}
-          title="New Task"
-          number="10"
-          growth="+10"
-          growthColor="#4ec522"
-          chartColor="#69ceef"
-          data={newTask}
-        />
-        <StatsCard
-          icon={icon3}
-          number="10"
-          growth="+08"
-          chartColor="#FF614C"
-          growthColor="#4ec522"
-          data={projectDone}
-        />
+        <div className="stats-row">
+          <StatsCard
+            icon={icon1}
+            title="Task Completed"
+            number="08"
+            growth="+12%"
+            growthColor="green"
+            chartColor="#5051F9"
+            data={chartData}
+          />
+
+          <StatsCard
+            icon={icon2}
+            title="New Task"
+            number="10"
+            growth="+10"
+            growthColor="#4ec522"
+            chartColor="#69ceef"
+            data={newTask}
+          />
+
+          <StatsCard
+            icon={icon3}
+            title="Projects Done"
+            number="10"
+            growth="+08"
+            growthColor="#4ec522"
+            chartColor="#FF614C"
+            data={projectDone}
+          />
+        </div>
+
+        <div className="taskchart-section">
+          <TaskChart />
+        </div>
+
+        <div className="task-section">
+          <h3 className="task-title">Task</h3>
+
+          <Taskitem
+            time="9:00 am"
+            title="Search Inspiration for project"
+            link="https://uistore.com"
+            comments={8}
+            progress={24}
+            active={true}
+          />
+
+          <Taskitem
+            time="3:00 am"
+            title="Search Inspiration for project"
+            link="https://uistore.org"
+            comments={5}
+            progress={60}
+          />
+        </div>
       </div>
 
-        {/* Task Chart */}
-      <div className="taskchart-section">
-        <TaskChart />
-      </div>
-
-        {/* Task List */}
-      <div className="task-section">
-        <h3 className="task-title">Task</h3>
-  
-        <Taskitem
-          time="9:00 am"
-          title="Search Inspiration for project"
-          link="https://uistore.com"
-          comments={8}
-          progress={24}
-          active={true}
-        />
-        <Taskitem
-          time="3:00 am"
-          title="Search Inspiration for project"
-          link="https://uistore.org"
-          comments={5}
-          progress={60}
-        />
-      </div>
-      </div>
-     
-       {/* Right Panel */}
-      <RightPanel />
+      {/* ✅ PASS PROJECTS TO RIGHT PANEL */}
+      <RightPanel projects={projects} />
     </div>
   );
 }

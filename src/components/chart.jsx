@@ -13,7 +13,7 @@ export function ChartContainer({ data, height = 300 }) {
   return (
     <ResponsiveContainer width="100%" height={height}>
       <LineChart data={data}>
-        <CartesianGrid stroke="#f1f5f9" horizontal={false} />
+        <CartesianGrid stroke="#E7EBEC" vertical={false} />
         <XAxis dataKey="month" />
         <YAxis domain={[0, 400]} />
         <Tooltip />
