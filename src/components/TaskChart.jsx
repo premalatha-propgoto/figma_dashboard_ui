@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { ChartContainer } from "./chart"
-import "./TaskChart.css"
+import { useState } from "react";
+import { ChartContainer } from "./chart";
+import "./TaskChart.css";
 const monthlyData = [
   { month: "May", New: 60, Completed: 40 },
   { month: "Jun", New: 150, Completed: 100 },
@@ -16,9 +16,9 @@ const monthlyData = [
   { month: "Feb", New: 330, Completed: 80 },
   { month: "Mar", New: 280, Completed: 160 },
   { month: "Apr", New: 100, Completed: 120 },
-]
+];
 function TaskChart() {
-  const [active, setActive] = useState("Monthly")
+  const [active, setActive] = useState("Monthly");
   return (
     <div className="task-chart">
       <div className="chart-header">
@@ -37,6 +37,6 @@ function TaskChart() {
       </div>
       <ChartContainer data={monthlyData} height={300} />
     </div>
-  )
+  );
 }
-export default TaskChart
+export default TaskChart;

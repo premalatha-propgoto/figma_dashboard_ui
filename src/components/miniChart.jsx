@@ -1,15 +1,14 @@
-"use client"
-import {
-  LineChart,
-  Line,
-  Tooltip,
-  ResponsiveContainer,
-} from "recharts"
-export default function MiniLineChart({ data, height = 80, lineColor = "#3b82f6" }) {
+"use client";
+import { LineChart, Line, Tooltip, ResponsiveContainer } from "recharts";
+export default function MiniLineChart({
+  data,
+  height = 80,
+  lineColor = "#3b82f6",
+}) {
   if (!data || !data.length) return null;
 
   const numericKey = Object.keys(data[0]).find(
-    key => typeof data[0][key] === "number"
+    (key) => typeof data[0][key] === "number",
   );
 
   return (

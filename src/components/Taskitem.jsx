@@ -40,22 +40,22 @@ export default function Taskitem({
         </div>
       </div>
       <div className="task-right">
-  <div className="progress-section">
-    <span className="progress-text">{progress}% complete</span>
-    <div className="progress-row">
-      <div className="progress-bar">
-        <div
-          className="progress-fill"
-          style={{ width: `${progress}%` }}
-        ></div>
+        <div className="progress-section">
+          <span className="progress-text">{progress}% complete</span>
+          <div className="progress-row">
+            <div className="progress-bar">
+              <div
+                className="progress-fill"
+                style={{ width: `${progress}%` }}
+              ></div>
+            </div>
+            <button className="reminder-btn">
+              <img src={reminderIcon} alt="reminder" />
+              Reminder
+            </button>
+          </div>
+        </div>
       </div>
-      <button className="reminder-btn">
-        <img src={reminderIcon} alt="reminder" />
-        Reminder
-      </button>
-    </div>
-  </div>
-</div>
     </div>
   );
 }

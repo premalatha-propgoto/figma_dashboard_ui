@@ -7,8 +7,8 @@ export default function StatsCard({
   number,
   growth,
   growthColor,
-data,
-  chartColor
+  data,
+  chartColor,
 }) {
   return (
     <div className="stats-card">
@@ -21,15 +21,11 @@ data,
       </div>
       <hr className="stats-divider" />
       <div className="stats-chart-row">
-<MiniLineChart
-  data={data}
-  height={80}
-  lineColor={chartColor}
-/>
-  <p className="stats-growth" style={{ color: growthColor }}>
-    {growth} <span className="growth-sub">more from last week</span>
-  </p>
-</div>
+        <MiniLineChart data={data} height={80} lineColor={chartColor} />
+        <p className="stats-growth" style={{ color: growthColor }}>
+          {growth} <span className="growth-sub">more from last week</span>
+        </p>
+      </div>
     </div>
   );
 }

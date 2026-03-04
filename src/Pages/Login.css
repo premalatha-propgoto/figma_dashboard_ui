@@ -1,0 +1,63 @@
+
+body, html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: #f3f6fc; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.login-container {
+  width: 350px;
+  padding: 30px;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+  text-align: center;
+}
+.login-container h2 {
+  margin-bottom: 20px;
+  font-size: 26px;
+  font-weight: 600;
+  color: #2d2d2d;
+}
+.login-container input,
+.login-container select {
+  width: 95%;
+  margin: 12px 0;
+  padding: 12px;
+  border: 1px solid #d8dce3;
+  border-radius: 8px;
+  font-size: 15px;
+  outline: none;
+  transition: 0.2s ease;
+}
+.login-container input:focus,
+.login-container select:focus {
+  border-color: #2d6cdf;
+  box-shadow: 0 0 5px rgba(45, 108, 223, 0.4);
+}
+.login-btn {
+  width: 95%;
+  padding: 12px;
+  background-color: #2d6cdf;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 16px;
+  letter-spacing: .5px;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: 0.3s ease;
+}
+.login-btn:hover {
+  background-color: #1e54b5;
+}
+.error-text {
+  color: #ff3b3b;
+  font-size: 13px;
+  margin-bottom: 10px;
+  text-align: left;
+}

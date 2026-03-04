@@ -1,5 +1,5 @@
-"use client"
-import * as React from "react"
+"use client";
+import * as React from "react";
 import {
   LineChart,
   Line,
@@ -8,12 +8,12 @@ import {
   YAxis,
   Tooltip,
   ResponsiveContainer,
-} from "recharts"
+} from "recharts";
 export function ChartContainer({ data, height = 300 }) {
   return (
     <ResponsiveContainer width="100%" height={height}>
       <LineChart data={data}>
-        <CartesianGrid stroke="#f1f5f9" vertical={false} />
+        <CartesianGrid stroke="#f1f5f9" horizontal={false} />
         <XAxis dataKey="month" />
         <YAxis domain={[0, 400]} />
         <Tooltip />
@@ -33,5 +33,5 @@ export function ChartContainer({ data, height = 300 }) {
         />
       </LineChart>
     </ResponsiveContainer>
-  )
+  );
 }
