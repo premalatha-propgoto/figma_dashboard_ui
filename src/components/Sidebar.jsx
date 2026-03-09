@@ -28,7 +28,7 @@ function Sidebar() {
       </div>
 
       <div className="menu">
-        {menuItems.map((item) => (          
+        {menuItems.map((item) => (
           <div
             key={item.id}
             onClick={() => setActive(item.id)}

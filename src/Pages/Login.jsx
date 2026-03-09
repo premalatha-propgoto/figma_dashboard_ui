@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./Login.css"; 
+import "./Login.css";
 
 function Login() {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: "",
     password: "",
-    role: ""
+    role: "",
   });
   const [error, setError] = useState("");
 
@@ -36,8 +36,8 @@ function Login() {
       });
 
       const data = await res.json();
-      console.log("data:",data);
-      
+      console.log("data:", data);
+
       if (!res.ok) {
         setError(data.message || "Login failed");
         return;
@@ -47,7 +47,6 @@ function Login() {
       localStorage.setItem("role", data.role);
 
       navigate("/dashboard");
-
     } catch (error) {
       console.log(error);
       setError("Something went wrong. Please try again.");

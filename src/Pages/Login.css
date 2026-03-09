@@ -10,6 +10,7 @@
   flex-direction: column;
   gap: 18px;
   text-align: center;
+  margin-top: 300px;
 }
 .login-container h2 {
   font-size: 26px;

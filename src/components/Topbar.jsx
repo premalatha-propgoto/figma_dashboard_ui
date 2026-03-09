@@ -1,19 +1,35 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Topbar.css";
-
+import Snackbar from "../components/Snackbar";
 import searchIcon from "../assets/search.png";
 import notificationIcon from "../assets/notify.svg";
-import profileImage from "../assets/Group 13.svg";
+import Avatar from "../components/Avatar";
 import arrowIcon from "../assets/arrow-down.png";
 
 function Topbar() {
-  const [showProfileDropdown, setShowProfileDropdown] = useState(false);
-  const [showNotificationDropdown, setShowNotificationDropdown] = useState(false);
+  const [showProfileBox, setShowProfileBox] = useState(false);
+  const [showLogoutBox, setShowLogoutBox] = useState(false);
+
+  const [userEmail, setUserEmail] = useState("");
+  const [role, setRole] = useState("");
 
   const navigate = useNavigate();
+  const [snackbar, setSnackbar] = useState({
+    open: false,
+    message: "",
+    type: "info",
+  });
+  useEffect(() => {
+    const storedEmail = localStorage.getItem("email");
+    const storedRole = localStorage.getItem("role");
+
+    if (storedEmail) setUserEmail(storedEmail);
+    if (storedRole) setRole(storedRole);
+  }, []);
+
   const handleLogout = () => {
-    localStorage.removeItem("authToken");
+    localStorage.clear();
     navigate("/Login");
   };
 
@@ -21,50 +37,70 @@ function Topbar() {
     <div className="topbar">
       <div className="topbar-left"></div>
 
-      <div className="search-container">
-        <img src={searchIcon} alt="search" className="search-icon" />
+      <div className="search-wrapper">
         <input
           type="text"
           placeholder="Search anything..."
           className="search-input"
         />
+        <img src={searchIcon} alt="search" className="search-icon" />
       </div>
 
       <div className="topbar-right">
-        {/* Notification Button */}
         <button
           className="icon-button"
           onClick={() => {
-            setShowNotificationDropdown(!showNotificationDropdown);
-            setShowProfileDropdown(false);
+            setSnackbar({
+              open: true,
+              message: "No notifications",
+              type: "info",
+            });
+
+            setShowProfileBox(false);
+            setShowLogoutBox(false);
           }}
         >
           <img src={notificationIcon} alt="notification" className="icon-img" />
         </button>
-{showNotificationDropdown && (
-          <div className="notification-dropdown">
-            <p className="no-notifications">No notifications</p>
-          </div>
-        )}
 
-        {/* Profile Image Button */}
         <button
           className="icon-button profile-button"
           onClick={() => {
-            setShowProfileDropdown(!showProfileDropdown);
-            setShowNotificationDropdown(false);
+            setShowProfileBox(!showProfileBox);
+            setShowLogoutBox(false);
           }}
         >
-          <img src={profileImage} alt="profile" className="profile-img" />
+          <Avatar name={role} size={36} />
+        </button>
+        <button
+          className="icon-button"
+          onClick={() => {
+            setShowLogoutBox(!showLogoutBox);
+            setShowProfileBox(false);
+          }}
+        >
           <img src={arrowIcon} alt="arrow" className="arrow-icon" />
         </button>
-
-        {showProfileDropdown && (
-          <div className="dropdown-menu">
-            <div className="logout-btn" onClick={handleLogout}>Logout</div>
+        {showProfileBox && (
+          <div className="profile-box">
+            <h4>{userEmail}</h4>
+            <p>{role}</p>
+          </div>
+        )}
+        {showLogoutBox && (
+          <div className="logout-box">
+            <button className="logout-btn" onClick={handleLogout}>
+              Logout
+            </button>
           </div>
         )}
       </div>
+      <Snackbar
+        open={snackbar.open}
+        message={snackbar.message}
+        type={snackbar.type}
+        onClose={() => setSnackbar({ open: false, message: "", type: "info" })}
+      />
     </div>
   );
 }

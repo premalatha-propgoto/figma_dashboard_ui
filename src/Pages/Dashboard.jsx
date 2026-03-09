@@ -11,8 +11,12 @@ import icon1 from "../assets/Group 16.png";
 import icon2 from "../assets/msg.png";
 import icon3 from "../assets/info.png";
 
+import graph1 from "../assets/graph1.svg";
+import graph2 from "../assets/graph2.svg";
+import graph3 from "../assets/graph3.svg";
 function Dashboard() {
   const [projects, setProjects] = useState([]);
+  const [tasks, setTasks] = useState([]);
   useEffect(() => {
     fetch("http://localhost:5000/api/project_list", {
       method: "POST",
@@ -21,45 +25,33 @@ function Dashboard() {
       .then((res) => res.json())
       .then((data) => {
         if (data.projects) {
-          setProjects(data.projects); 
+          setProjects(data.projects);
         }
       })
       .catch((err) => console.error("Error fetching projects:", err));
   }, []);
 
-  const chartData = [
-    { month: "Jan", Completed: 130 },
-    { month: "Feb", Completed: 0 },
-    { month: "Mar", Completed: 100 },
-    { month: "Apr", Completed: 150 },
-    { month: "May", Completed: 80 },
-    { month: "Jun", Completed: 200 },
-    { month: "Jul", Completed: 120 },
-  ];
-  const newTask = [
-    { month: "Jan", New: 170 },
-    { month: "Feb", New: 50 },
-    { month: "Mar", New: 0 },
-    { month: "Apr", New: 160 },
-    { month: "May", New: 0 },
-    { month: "Jun", New: 200 },
-    { month: "Jul", New: 150 },
-  ];
-  const projectDone = [
-    { month: "Jan", Done: 8 },
-    { month: "Feb", Done: 50 },
-    { month: "Mar", Done: 0 },
-    { month: "Apr", Done: 160 },
-    { month: "May", Done: 0 },
-    { month: "Jun", Done: 200 },
-    { month: "Jul", Done: 120 },
-  ];
+  useEffect(() => {
+    fetch("http://localhost:5000/api/task_list", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.tasks) {
+          setTasks(data.tasks);
+        }
+      })
+      .catch((err) => console.error("Error fetching tasks:", err));
+  }, []);
+
   return (
     <div className="dashboard-container">
       <Sidebar />
 
       <div className="dashboard-main">
         <Topbar />
+
         <div className="stats-row">
           <StatsCard
             icon={icon1}
@@ -67,8 +59,7 @@ function Dashboard() {
             number="08"
             growth="+12%"
             growthColor="green"
-            chartColor="#5051F9"
-            data={chartData}
+            graphImage={graph1}
           />
 
           <StatsCard
@@ -77,8 +68,7 @@ function Dashboard() {
             number="10"
             growth="+10"
             growthColor="#4ec522"
-            chartColor="#69ceef"
-            data={newTask}
+            graphImage={graph2}
           />
 
           <StatsCard
@@ -87,11 +77,9 @@ function Dashboard() {
             number="10"
             growth="+08"
             growthColor="#4ec522"
-            chartColor="#FF614C"
-            data={projectDone}
+            graphImage={graph3}
           />
         </div>
-
         <div className="taskchart-section">
           <TaskChart />
         </div>
@@ -99,26 +87,29 @@ function Dashboard() {
         <div className="task-section">
           <h3 className="task-title">Task</h3>
 
-          <Taskitem
-            time="9:00 am"
-            title="Search Inspiration for project"
-            link="https://uistore.com"
-            comments={8}
-            progress={24}
-            active={true}
-          />
-
-          <Taskitem
-            time="3:00 am"
-            title="Search Inspiration for project"
-            link="https://uistore.org"
-            comments={5}
-            progress={60}
-          />
+          {tasks.length === 0 ? (
+            <p>No tasks available</p>
+          ) : (
+            tasks
+              .filter((task) => task.is_active)
+              .map((task, index) => (
+                <Taskitem
+                  key={task.task_id}
+                  taskDate={new Date(task.start_time).toLocaleDateString()}
+                  taskTime={new Date(task.start_time).toLocaleTimeString([], {
+                    hour: "2-digit",
+                    minute: "2-digit",
+                  })}
+                  title={task.title}
+                  link={task.url}
+                  progress={task.status === "completed" ? 100 : 0}
+                  active={index === 0}
+                />
+              ))
+          )}
         </div>
       </div>
 
-      {/* ✅ PASS PROJECTS TO RIGHT PANEL */}
       <RightPanel projects={projects} />
     </div>
   );

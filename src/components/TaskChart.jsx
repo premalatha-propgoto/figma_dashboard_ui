@@ -4,18 +4,18 @@ import { useState } from "react";
 import { ChartContainer } from "./chart";
 import "./TaskChart.css";
 const monthlyData = [
-  { month: "May", New: 60, Completed: 40 },
-  { month: "Jun", New: 150, Completed: 100 },
-  { month: "Jul", New: 100, Completed: 200 },
-  { month: "Aug", New: 390, Completed: 300 },
-  { month: "Sep", New: 260, Completed: 190 },
-  { month: "Oct", New: 170, Completed: 220 },
-  { month: "Nov", New: 230, Completed: 40 },
-  { month: "Dec", New: 120, Completed: 60 },
-  { month: "Jan", New: 300, Completed: 40 },
-  { month: "Feb", New: 330, Completed: 80 },
-  { month: "Mar", New: 280, Completed: 160 },
-  { month: "Apr", New: 100, Completed: 120 },
+  { month: "May", New: 100, Completed: 50 },
+  { month: "Jun", New: 110, Completed: 200 },
+  { month: "Jul", New: 200, Completed: 50 },
+  { month: "Aug", New: 300, Completed: 380 },
+  { month: "Sep", New: 90, Completed: 250 },
+  { month: "Oct", New: 220, Completed: 180 },
+  { month: "Nov", New: 40, Completed: 260 },
+  { month: "Dec", New: 60, Completed: 180 },
+  { month: "Jan", New: 140, Completed: 310 },
+  { month: "Feb", New: 80, Completed: 210 },
+  { month: "Mar", New: 160, Completed: 160 },
+  { month: "Apr", New: 120, Completed: 50 },
 ];
 function TaskChart() {
   const [active, setActive] = useState("Monthly");

@@ -1,10 +1,11 @@
 .task-chart {
   background: #ffffff;
-  margin: 0 25px 25px 25px;
+  margin: 15px 25px 25px 40px;
   padding: 25px;
-  border-radius: 20px;
-  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.05);
-  width: 73%;
+  border-radius: 16px;
+  z-index: 0;
+  position: relative;
+  /* box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.05); */
 }
 .chart-header {
   display: flex;
@@ -17,6 +18,7 @@
   gap: 25px;
   font-size: 18px;
   cursor: pointer;
+  font-weight: 500;
 }
 
 .chart-tabs span {
@@ -29,6 +31,7 @@
   font-weight: 500;
 }
 .task-chart-container {
-  width: 100%;
-  height: 400px;
+  width: 870px;
+  height: 370px;
+  z-index: 3;
 }

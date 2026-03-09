@@ -1,68 +1,54 @@
 .right-panel {
   position: fixed;
-  top: 80px;
+  top: 75px;
   right: 0;
-  width: 400px;
-  height: 100vh;
-  /* display: flex; */
+  width: 396px;
+  height: calc(100vh - 80px);
   background: #ffffff;
-  padding: 25px;
+  padding: 0px 25px 25px 25px;
   box-sizing: border-box;
-  border-left: 1px solid #e5e7eb;
-  overflow: hidden;  
+  overflow-y: auto;  
+   overflow-x: hidden; 
 }
 .schedule-header {
+  position: sticky;
+  top: 0;
+  background:#ffffff;
+  z-index: 10;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  padding-bottom: 10px;
+  margin-top:20px;
+}
 
-}
-.grid {
-  width: 20px;
-  margin-left: 80px;
-  opacity: 0.6;
-  width: 32px;
-  height: 32px;
-  border-radius: 20%;
-  background: #e5e7eb;
-  display: flex;
-  align-items: center;
-  justify-content: center;  
-  cursor: pointer;
-  border: none;
-  padding: 0;
-  font-size: 20px;
-}
-.calendar {
-  width: 30px;
-  opacity: 0.6;
-  width: 32px;
-  height: 32px;
-  border-radius: 20%;
-  display: flex;
-  align-items: center;
-  justify-content: center;  
-  cursor: pointer;
-  border: none;
-  padding: 0;
-  font-size: 20px;
-  background: #e5e7eb;
-}
 .schedule-icons {
   display: flex;
   align-items: center;
-  gap: 12px;
-  background: #F4F4F4;
-  padding: 8px 14px;
-  border-radius: 12px;
-  margin-left:100px;
-  width: fit-content;
+  justify-content: center;
+
+  width: 78px;
+  height: 29px;
+
+  background:#F4F4F4;
+  border-radius: 14.5px;
+
+  padding: 3px;
+  gap: 4px;
 }
 
 .schedule-icons img {
   width: 20px;
   height: 20px;
+
+  padding: 4px;
+  border-radius: 8px;
+
   cursor: pointer;
-  opacity: 0.7;
+  opacity: 0.6;
+}
+.schedule-icons img:hover {
+  background: #F4F4F4;
 }
 
 .more-btn {
@@ -100,27 +86,30 @@
   font-weight: 500;
 }
 .call-card {
-  background: linear-gradient(135deg, #6d5dfc, #4f46e5);
-  border-radius: 18px;
+  background: #5051F9;
+  border-radius: 10px;
   padding: 18px;
+  width: 300px;
   color: white;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: center; 
   margin-top: 15px;
+  box-shadow: 0px 1px 1px 0px #5051F93D;
 }
 .profile-group {
+  margin-left: 10px;
   display: flex;
   align-items: center;
 }
-.profile-group img {
+.profile-group .avatar {
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  margin-left: -8px;
   border: 2px solid white;
-display: flex;
-align-items: center;
+  overflow: hidden;
+  margin-left: -10px;   
+  margin-top: -6px;     
 }
 .profile-count {
   width: 30px;
@@ -131,7 +120,7 @@ align-items: center;
   align-items: center;
   justify-content: center;
   margin-left: -8px;
-  font-size: 12px;
+  /* font-size: 12px; */
 }
 .call-time {
   margin-left: 15px;
@@ -152,7 +141,7 @@ align-items: center;
 .call-left {
   display: flex;
   align-items: center;
-  gap: 15px; /* spacing between group and time */
+  gap: 15px; 
 }
 .call-icon {
   width: 22px;
@@ -174,18 +163,24 @@ hr {
   cursor: pointer;
 }
 .message-item img {
-  width: 45px;
-  height: 45px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
 }
 .message-item h5 {
   margin: 0;
-  font-size: 14px;
+  font-size: 16px;
+  color: #232360;
+  font-weight:700;
 }
 .message-item p {
   margin: 3px 0 0;
-  font-size: 12px;
-  color: #777;
+  font-style: bold;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: #768396;
 }
 .task-input {
   width: 96%;
@@ -206,28 +201,31 @@ hr {
   overflow-x: auto;
   scroll-behavior: smooth;
   padding: 6px 4px;
+  margin-top: 20px;
 }
 
 .emoji-container::-webkit-scrollbar {
-  display: none; /* Hide scrollbar */
+  display: none; 
 }
 .collab-title {
-  margin-top: 15px;
+  margin-top: 40px;
   font-size: 13px;
+  color: #768396;
+  font-weight: 500;
 }
 .collab-row {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 15px;
   margin-top: 10px;
 }
 .collab-chip {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 6px;
   padding: 6px 10px;
   border-radius: 20px;
-  font-size: 12px;
+  font-size: 13px;
   color: white;
 }
 .collab-chip img {
@@ -238,14 +236,20 @@ hr {
 .collab-chip.purple {
   background: #E8E8FF;
   color: #5051F9;
+  font-weight: 500;
+  width:94px;
+  height:35px;
 }
 .collab-chip.blue {
   background: #E5F5FF;
   color: #1EA7FF;
+  font-weight: 500;
+  width:94px;
+  height:35px;
 }
 .add-btn{
-  width: 32px;
-  height: 32px;
+  width: 35px;
+  height: 35px;
   border-radius: 50%;
   background: #e5e7eb;
   display: flex;
@@ -255,7 +259,7 @@ hr {
   border: none;
   padding: 0;
   font-size: 20px;
-  color: #4f46e5;
+  color: #232360;
 }
 .arrow-btn {
   width: 32px;
@@ -270,6 +274,7 @@ hr {
   padding: 0;
   font-size: 24px;
   color: #4f46e5;
+  margin-top:20px;
 }
 .emoji-wrapper {
   display: flex;
@@ -295,8 +300,8 @@ hr {
     color:white;
   border: none;
   border-radius: 50%;
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
   cursor: pointer;
   font-size: 18px;
   font-weight: bold;
@@ -311,7 +316,7 @@ hr {
   gap: 12px; 
 }
 .project-button{
-background: #4f46e5;
+background: #5051F9;
   color: white;
   border: none;
   border-radius: 16px;
@@ -322,10 +327,10 @@ background: #4f46e5;
   justify-content: center;
   font-size: 16px;
   width: 200px;      
-  height: 45px;   
+  height: 35px;   
 }
 .task-button {
-  background: #4f46e5;
+  background: #5051F9;
   color: white;
   border: none;
   border-radius: 16px;
@@ -336,13 +341,185 @@ background: #4f46e5;
   justify-content: center;
   font-size: 16px;
   width: 200px;      
-  height: 45px;      
+  height: 35px;      
 }
 
 .project-button {
   margin-bottom: 0; 
 }
 
+.project-list-box {
+  padding: 15px;
+  margin-bottom: 15px;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.box-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.count-badge {
+  background: #6366f1;
+  color: white;
+  padding: 3px 8px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+.project-item {
+  background: white;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  transition: 0.2s;
+}
+
+.project-item:hover {
+  background: #eceeff;
+}
+
+.task-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.task-item {
+  background: white;
+  padding: 8px;
+  border-radius: 8px;
+  margin-bottom: 6px;
+}
+
+.empty-box {
+  text-align: center;
+  padding: 15px;
+  color: gray;
+}
+.project-list-box ul {
+  list-style: none; 
+  padding-left: 0;  
+  margin: 0;        
+}
+
+.icon-active {
+  border-radius: 8px;
+  padding: 4px;
+  opacity: 1;
+}
+.icon-active:hover{
+   background-color: #e5e7eb;
+}
+
+.icon-inactive {
+  border-radius: 8px;
+  padding: 4px;
+  opacity: 0.6;
+}
+
+.project-card-container {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.project-card {
+  display: flex;
+  gap: 12px;
+  background: white;
+  /* padding: 12px; */
+  border-radius: 10px;
+  cursor: pointer;
+  border: 1px solid #e5e7eb;
+  transition: 0.2s;
+  margin-top: 10px;
+}
+
+.project-card:hover {
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.project-icon {
+  font-size: 50px;
+}
+
+.project-name {
+  margin: 0;
+  font-size: 15px;
+}
+
+.project-desc {
+  font-size: 13px;
+  margin-top: 4px;
+  color: #374151;
+}
+.project-icon img {
+  width: 35px;
+  height: 35px;
+}
+
+.clock-icon {
+  width: 14px;
+  height: 14px;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+.right-panel::-webkit-scrollbar{
+  width: 6px;
+}
+.right-panel ::-webkit-scrollbar-thumb{
+background: #d1d5db;
+border-radius: 6px;
+}
+
+.invite-user-list {
+  /* background: white; */
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-top: 10px;
+  max-height: 150px;
+  overflow-y: auto;
+  color:black;
+}
+
+.invite-card {
+  position: absolute;
+  margin-top: 8px;
+  width: 180px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.15);
+  padding: 8px 0;
+  z-index: 10;
+}
+
+.invite-user {
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 14px;
+  z-index: 4;
+}
+
+
+.no-users {
+  padding: 8px 12px;
+  font-size: 13px;
+  color: gray;
+}
 @media (max-width: 1200px) {
   .right-panel {
     width: 300px;
@@ -355,7 +532,7 @@ background: #4f46e5;
 
 @media (max-width: 900px) {
   .right-panel {
-    display: none; /* hide right panel on mobile */
+    display: none; 
   }
 
   .dashboard-main {
