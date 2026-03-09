@@ -55,7 +55,7 @@ export default function Taskitem({ taskTime, title, link, progress }) {
               <span>0 comments</span>
             </div>
           </div>
-        </div>  
+        </div>
         <div className="progress-section">
           <span className="progress-text">{progress}% complete</span>
           <div className="progress-bar">

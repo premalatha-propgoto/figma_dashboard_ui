@@ -27,8 +27,18 @@ export function ChartContainer({ data, height = 300 }) {
         </defs>
 
         <CartesianGrid stroke="#E7EBEC" vertical={false} />
-        <XAxis dataKey="month" axisLine={false} tickLine ={false} tickMargin={14}/>
-        <YAxis domain={[0, 400]} axisLine={false} tickLine={false} tickMargin={26}/>
+        <XAxis
+          dataKey="month"
+          axisLine={false}
+          tickLine={false}
+          tickMargin={14}
+        />
+        <YAxis
+          domain={[0, 400]}
+          axisLine={false}
+          tickLine={false}
+          tickMargin={26}
+        />
         <Tooltip />
 
         <Area
