@@ -471,7 +471,6 @@ function RightPanel({ projects = [] }) {
           </button>
         </form>
       </Modal>
-
       <Snackbar
         open={snackbar.open}
         message={snackbar.message}
