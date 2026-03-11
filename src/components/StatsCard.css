@@ -1,11 +1,11 @@
 .stats-card {
   background: #ffffff;
   padding: 18px 20px;
-  width: 274px;
+  /* width: 369px; */
   border-radius: 16px;
   display: flex;
   flex-direction: column;
-  Height:210px;
+  min-height: 170px;
 }
 .stats-header {
   display: flex;
@@ -52,7 +52,7 @@
   display: flex;
   align-items: center;
   gap: 12px;    
-  margin-top: 30px;  
+  margin-top: 10px;  
 }
 .stats-chart-row canvas,
 .stats-chart-row svg {

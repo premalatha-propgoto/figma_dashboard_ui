@@ -19,7 +19,7 @@
   align-items: center;
   justify-content: space-between;
   padding-bottom: 10px;
-  margin-top:20px;
+  margin-top:35px;
 }
 
 .schedule-icons {
@@ -75,6 +75,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position:relative;
 }
 .schedule-title-row h4 {
   font-size: 16px;
@@ -498,22 +499,26 @@ border-radius: 6px;
 
 .invite-card {
   position: absolute;
-  margin-top: 8px;
+  top: 100%;       
+  left: 0;         
+  margin-top: 6px;
   width: 180px;
   background: white;
   border-radius: 8px;
   box-shadow: 0px 4px 12px rgba(0,0,0,0.15);
   padding: 8px 0;
   z-index: 10;
+  margin-left:170px;
 }
-
 .invite-user {
   padding: 8px 12px;
   cursor: pointer;
   font-size: 14px;
   z-index: 4;
 }
-
+.invite-wrapper{
+  position: relative;
+}
 
 .no-users {
   padding: 8px 12px;

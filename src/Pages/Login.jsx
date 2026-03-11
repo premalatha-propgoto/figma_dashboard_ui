@@ -9,31 +9,26 @@ function Login() {
     role: "",
   });
   const [error, setError] = useState("");
-
   const handleChange = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
     });
   };
-
   const handleLogin = async () => {
     const { email, password, role } = formData;
 
     if (!email || !password || !role) {
       setError("All fields are required!");
       return;
-    }
-
+    }                                                                                                                                                                  
     setError("");
-
     try {
       const res = await fetch("http://localhost:5000/api/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password, role }),
       });
-
       const data = await res.json();
       console.log("data:", data);
 
@@ -51,13 +46,10 @@ function Login() {
       setError("Something went wrong. Please try again.");
     }
   };
-
   return (
     <div className="login-container">
       <h2>Login</h2>
-
       {error && <p className="error-text">{error}</p>}
-
       <input
         type="email"
         name="email"
@@ -65,7 +57,6 @@ function Login() {
         value={formData.email}
         onChange={handleChange}
       />
-
       <input
         type="password"
         name="password"
@@ -73,17 +64,14 @@ function Login() {
         value={formData.password}
         onChange={handleChange}
       />
-
       <select name="role" value={formData.role} onChange={handleChange}>
         <option value="">Select Role</option>
         <option value="software developer">Software Developer</option>
       </select>
-
       <button className="login-btn" onClick={handleLogin}>
         Login
       </button>
     </div>
   );
 }
-
 export default Login;

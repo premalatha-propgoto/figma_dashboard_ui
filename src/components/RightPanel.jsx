@@ -11,7 +11,7 @@ import gridActive from "../assets/Group 1.svg";
 
 import projectIcon from "../assets/info.png";
 import Avatar from "../components/Avatar";
-function RightPanel({ projects = [] }) {
+function RightPanel({ projects = [], fetchProjects, fetchTasks }){
   const [openProjectModal, setOpenProjectModal] = useState(false);
   const [openTaskModal, setOpenTaskModal] = useState(false);
 
@@ -109,6 +109,22 @@ function RightPanel({ projects = [] }) {
 
     fetchUsers();
   }, []);
+  const messages = [
+  "Let's complete the task today!",
+  "Please check the latest update.",
+  "Client meeting scheduled soon.",
+  "Don't forget to review the document.",
+  "New task assigned to you.",
+  "Great work on the project!",
+  "Let's discuss the next milestone.",
+  "Reminder: submit the report.",
+  "We need to finalize the design.",
+  "Call me when you're free."
+];
+
+const getRandomMessage = () => {
+  return messages[Math.floor(Math.random() * messages.length)];
+};
 
   return (
     <div className="right-panel">
@@ -200,15 +216,15 @@ function RightPanel({ projects = [] }) {
             <div className="call-left">
               <div className="profile-group">
                 <Avatar
-                  name="Angela"
+                  name="Prema"
                   style={{ width: "30px", height: "30px" }}
                 />
                 <Avatar
-                  name="Chris"
+                  name="Joo"
                   style={{ width: "30px", height: "30px" }}
                 />
                 <Avatar
-                  name="David"
+                  name="Priya"
                   style={{ width: "30px", height: "30px" }}
                 />
                 <Avatar name="R" style={{ width: "30px", height: "30px" }} />
@@ -223,16 +239,16 @@ function RightPanel({ projects = [] }) {
           <hr />
           <h3 className="section-title">Messages</h3>
 
-          {["Angela", "Chris", "David", "Sophia"].map((user, i) => (
-            <div className="message-item" key={i}>
-              <Avatar name={user} size={40} />
+         {["Prema", "Joo", "Priya", "Raji"].map((user, i) => (
+  <div className="message-item" key={i}>
+    <Avatar name={user} size={50} />
 
-              <div>
-                <h5>{user}</h5>
-                <p>Sample message...</p>
-              </div>
-            </div>
-          ))}
+    <div>
+      <h5>{user}</h5>
+      <p>{getRandomMessage()}</p>
+    </div>
+  </div>
+))}
           <div className="button-row">
             <div
               className="project-button"
@@ -282,11 +298,11 @@ function RightPanel({ projects = [] }) {
 
           <div className="collab-row">
             <div className="collab-chip purple">
-              <Avatar name="Angela" size={24} /> Angela ✕
+              <Avatar name="Prema" size={24} /> Prema ✕
             </div>
 
             <div className="collab-chip blue">
-              <Avatar name="Chris" size={24} /> Chris ✕
+              <Avatar name="Joo" size={24} /> Joo ✕
             </div>
 
             <div className="add-btn">+</div>
@@ -341,7 +357,7 @@ function RightPanel({ projects = [] }) {
                   message: "Project created successfully",
                   type: "success",
                 });
-
+                 fetchProjects();
                 setOpenProjectModal(false);
               } else {
                 setSnackbar({
@@ -385,7 +401,7 @@ function RightPanel({ projects = [] }) {
             const description = e.target.description.value;
             const start_time = e.target.start_time.value;
             const end_time = e.target.end_time.value;
-
+            const url = e.target.url.value;
             if (!title) {
               setSnackbar({
                 open: true,
@@ -400,6 +416,7 @@ function RightPanel({ projects = [] }) {
               description,
               start_time,
               end_time,
+              url,
             };
 
             try {
@@ -420,7 +437,7 @@ function RightPanel({ projects = [] }) {
                   message: "Task created successfully",
                   type: "success",
                 });
-
+                fetchTasks();
                 setOpenTaskModal(false);
               } else {
                 setSnackbar({

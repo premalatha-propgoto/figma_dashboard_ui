@@ -14,35 +14,45 @@ import icon3 from "../assets/info.png";
 import graph1 from "../assets/graph1.svg";
 import graph2 from "../assets/graph2.svg";
 import graph3 from "../assets/graph3.svg";
+
 function Dashboard() {
   const [projects, setProjects] = useState([]);
   const [tasks, setTasks] = useState([]);
-  useEffect(() => {
-    fetch("http://localhost:5000/api/project_list", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.projects) {
-          setProjects(data.projects);
-        }
-      })
-      .catch((err) => console.error("Error fetching projects:", err));
-  }, []);
+  const fetchProjects = async () => {
+    try {
+      const res = await fetch("http://localhost:5000/api/project_list", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+      });
 
+      const data = await res.json();
+
+      if (data.projects) {
+        setProjects(data.projects);
+      }
+    } catch (err) {
+      console.error("Error fetching projects:", err);
+    }
+  };
+  const fetchTasks = async () => {
+    try {
+      const res = await fetch("http://localhost:5000/api/task_list", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+      });
+
+      const data = await res.json();
+
+      if (data.tasks) {
+        setTasks(data.tasks);
+      }
+    } catch (err) {
+      console.error("Error fetching tasks:", err);
+    }
+  };
   useEffect(() => {
-    fetch("http://localhost:5000/api/task_list", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.tasks) {
-          setTasks(data.tasks);
-        }
-      })
-      .catch((err) => console.error("Error fetching tasks:", err));
+    fetchProjects();
+    fetchTasks();
   }, []);
 
   return (
@@ -80,6 +90,7 @@ function Dashboard() {
             graphImage={graph3}
           />
         </div>
+
         <div className="taskchart-section">
           <TaskChart />
         </div>
@@ -109,8 +120,11 @@ function Dashboard() {
           )}
         </div>
       </div>
-
-      <RightPanel projects={projects} />
+      <RightPanel
+        projects={projects}
+        fetchProjects={fetchProjects}
+        fetchTasks={fetchTasks}
+      />
     </div>
   );
 }

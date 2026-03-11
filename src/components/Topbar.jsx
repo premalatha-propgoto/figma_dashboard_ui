@@ -89,9 +89,9 @@ function Topbar() {
         )}
         {showLogoutBox && (
           <div className="logout-box">
-            <button className="logout-btn" onClick={handleLogout}>
+            <div className="logout-btn" onClick={handleLogout}>
               Logout
-            </button>
+            </div>
           </div>
         )}
       </div>
