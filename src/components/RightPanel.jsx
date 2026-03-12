@@ -11,7 +11,7 @@ import gridActive from "../assets/Group 1.svg";
 
 import projectIcon from "../assets/info.png";
 import Avatar from "../components/Avatar";
-function RightPanel({ projects = [], fetchProjects, fetchTasks }){
+function RightPanel({ projects = [], fetchProjects, fetchTasks }) {
   const [openProjectModal, setOpenProjectModal] = useState(false);
   const [openTaskModal, setOpenTaskModal] = useState(false);
 
@@ -110,21 +110,21 @@ function RightPanel({ projects = [], fetchProjects, fetchTasks }){
     fetchUsers();
   }, []);
   const messages = [
-  "Let's complete the task today!",
-  "Please check the latest update.",
-  "Client meeting scheduled soon.",
-  "Don't forget to review the document.",
-  "New task assigned to you.",
-  "Great work on the project!",
-  "Let's discuss the next milestone.",
-  "Reminder: submit the report.",
-  "We need to finalize the design.",
-  "Call me when you're free."
-];
+    "Let's complete the task today!",
+    "Please check the latest update.",
+    "Client meeting scheduled soon.",
+    "Don't forget to review the document.",
+    "New task assigned to you.",
+    "Great work on the project!",
+    "Let's discuss the next milestone.",
+    "Reminder: submit the report.",
+    "We need to finalize the design.",
+    "Call me when you're free."
+  ];
 
-const getRandomMessage = () => {
-  return messages[Math.floor(Math.random() * messages.length)];
-};
+  const getRandomMessage = () => {
+    return messages[Math.floor(Math.random() * messages.length)];
+  };
 
   return (
     <div className="right-panel">
@@ -179,6 +179,7 @@ const getRandomMessage = () => {
 
           <div className="schedule-title-row">
             <h4>Project Discovery Call</h4>
+            <span className="invite-wrapper"></span>
             <span
               className="invite"
               onClick={() => setShowInviteDropdown(!showInviteDropdown)}
@@ -239,16 +240,16 @@ const getRandomMessage = () => {
           <hr />
           <h3 className="section-title">Messages</h3>
 
-         {["Prema", "Joo", "Priya", "Raji"].map((user, i) => (
-  <div className="message-item" key={i}>
-    <Avatar name={user} size={50} />
+          {["Prema", "Joo", "Priya", "Raji"].map((user, i) => (
+            <div className="message-item" key={i}>
+              <Avatar name={user} size={50} />
 
-    <div>
-      <h5>{user}</h5>
-      <p>{getRandomMessage()}</p>
-    </div>
-  </div>
-))}
+              <div>
+                <h5>{user}</h5>
+                <p>{getRandomMessage()}</p>
+              </div>
+            </div>
+          ))}
           <div className="button-row">
             <div
               className="project-button"
@@ -357,7 +358,7 @@ const getRandomMessage = () => {
                   message: "Project created successfully",
                   type: "success",
                 });
-                 fetchProjects();
+                fetchProjects();
                 setOpenProjectModal(false);
               } else {
                 setSnackbar({

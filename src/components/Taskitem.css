@@ -7,13 +7,12 @@
   margin: 15px;
   border-radius: 10px;
   padding: 18px 24px;
-  background: linear-gradient(
-    to right,
-    #FBFAFF 0%,
-    #FBFAFF 230px,
-    #ffffff 230px
-  );
+  background: linear-gradient(to right,
+      #FBFAFF 0%,
+      #FBFAFF 230px,
+      #ffffff 230px);
 }
+
 .play-time-wrapper {
   display: flex;
   align-items: center;
@@ -74,6 +73,7 @@
   font-weight: 500;
   color: #23235F;
 }
+
 .task-info-row {
   display: flex;
   align-items: center;
@@ -88,15 +88,18 @@
   align-items: center;
   gap: 6px;
 }
+
 .task-link img,
 .task-comments img {
   width: 16px;
 }
+
 .task-link a {
   color: #4f46e5;
   text-decoration: none;
   font-weight: 500;
 }
+
 .progress-section {
   display: flex;
   flex-direction: column;
@@ -122,6 +125,7 @@
   background: #4f46e5;
   border-radius: 10px;
 }
+
 .reminder-btn {
   display: flex;
   align-items: center;
@@ -134,9 +138,11 @@
   border-radius: 9px;
   cursor: pointer;
 }
+
 .reminder-btn img {
   width: 16px;
 }
+
 .vertical-separator {
   width: 1px;
   height: 24px;

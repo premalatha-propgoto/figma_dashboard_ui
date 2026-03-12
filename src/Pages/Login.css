@@ -1,4 +1,3 @@
-
 .login-container {
   width: 350px;
   margin: 100px auto;
@@ -12,11 +11,13 @@
   text-align: center;
   margin-top: 300px;
 }
+
 .login-container h2 {
   font-size: 26px;
   color: #232360;
   margin-bottom: 10px;
 }
+
 .login-container input,
 .login-container select {
   width: 90%;
@@ -26,24 +27,26 @@
   border-radius: 12px;
   outline: none;
   transition: 0.2s ease-in-out;
-  /* background: #f8f9fc; */
+
 }
+
 .login-container input,
 .login-container select {
   width: 100%;
-  height: 48px;              /* force same height */
-  padding: 0 14px;           /* horizontal padding only */
+  height: 48px;
+  padding: 0 14px;
   font-size: 15px;
   border: 1px solid #ddd;
   border-radius: 12px;
   outline: none;
   background: #ffffff;
-  box-sizing: border-box;    /* ensures size stays equal */
+  box-sizing: border-box;
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
-  align-items:center;
+  align-items: center;
 }
+
 .login-btn {
   width: 100%;
   padding: 14px;

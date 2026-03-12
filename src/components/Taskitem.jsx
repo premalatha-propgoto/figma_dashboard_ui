@@ -82,7 +82,6 @@ export default function Taskitem({ taskTime, title, link }) {
         </div>
 
       </div>
-
       <Snackbar
         open={showSnackbar}
         message="Task started successfully!"

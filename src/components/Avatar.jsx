@@ -4,7 +4,7 @@ function Avatar(props) {
   const name = props.name ?? "User";
   const src = props.src;
   const size = props.size ?? 36;
-  const style = props.style; 
+  const style = props.style;
   let content;
   if (src) {
     content = <img src={src} alt={name} />;

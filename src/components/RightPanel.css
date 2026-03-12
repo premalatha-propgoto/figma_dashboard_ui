@@ -7,32 +7,30 @@
   background: #ffffff;
   padding: 0px 25px 25px 25px;
   box-sizing: border-box;
-  overflow-y: auto;  
-   overflow-x: hidden; 
+  overflow-y: auto;
+  overflow-x: hidden;
 }
+
 .schedule-header {
   position: sticky;
   top: 0;
-  background:#ffffff;
+  background: #ffffff;
   z-index: 10;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding-bottom: 10px;
-  margin-top:35px;
+  margin-top: 35px;
 }
 
 .schedule-icons {
   display: flex;
   align-items: center;
   justify-content: center;
-
   width: 78px;
   height: 29px;
-
-  background:#F4F4F4;
+  background: #F4F4F4;
   border-radius: 14.5px;
-
   padding: 3px;
   gap: 4px;
 }
@@ -47,6 +45,7 @@
   cursor: pointer;
   opacity: 0.6;
 }
+
 .schedule-icons img:hover {
   background: #F4F4F4;
 }
@@ -54,7 +53,7 @@
 .more-btn {
   background: none;
   border: none;
-  color: white;     
+  color: white;
   font-size: 20px;
   cursor: pointer;
   margin-left: 15px;
@@ -62,30 +61,36 @@
   display: flex;
   align-items: center;
 }
+
 .more-btn:hover {
   opacity: 0.8;
 }
+
 .schedule-sub {
   color: #1EA7FF;
   font-size: 12px;
   margin: 8px 0;
   font-weight: 500;
 }
+
 .schedule-title-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position:relative;
+  position: relative;
 }
+
 .schedule-title-row h4 {
   font-size: 16px;
 }
+
 .invite {
   color: #1EA7FF;
   font-size: 13px;
   cursor: pointer;
   font-weight: 500;
 }
+
 .call-card {
   background: #5051F9;
   border-radius: 10px;
@@ -94,24 +99,27 @@
   color: white;
   display: flex;
   justify-content: space-between;
-  align-items: center; 
+  align-items: center;
   margin-top: 15px;
   box-shadow: 0px 1px 1px 0px #5051F93D;
 }
+
 .profile-group {
   margin-left: 10px;
   display: flex;
   align-items: center;
 }
+
 .profile-group .avatar {
   width: 30px;
   height: 30px;
   border-radius: 50%;
   border: 2px solid white;
   overflow: hidden;
-  margin-left: -10px;   
-  margin-top: -6px;     
+  margin-left: -10px;
+  margin-top: -6px;
 }
+
 .profile-count {
   width: 30px;
   height: 30px;
@@ -121,38 +129,44 @@
   align-items: center;
   justify-content: center;
   margin-left: -8px;
-  /* font-size: 12px; */
 }
+
 .call-time {
   margin-left: 15px;
   font-weight: 500;
-  display:flex;
+  display: flex;
   align-items: center;
 }
+
 .call-right img {
   width: 18px;
   margin-left: 15px;
   cursor: pointer;
 }
+
 .call-right {
   display: flex;
   align-items: center;
-  gap: 15px;   
+  gap: 15px;
 }
+
 .call-left {
   display: flex;
   align-items: center;
-  gap: 15px; 
+  gap: 15px;
 }
+
 .call-icon {
   width: 22px;
   cursor: pointer;
 }
+
 hr {
   margin: 25px 0;
   border: none;
   border-top: 1px solid #ddd;
 }
+
 .section-title {
   margin: 15px 0;
 }
@@ -163,17 +177,20 @@ hr {
   margin-bottom: 15px;
   cursor: pointer;
 }
+
 .message-item img {
   width: 50px;
   height: 50px;
   border-radius: 50%;
 }
+
 .message-item h5 {
   margin: 0;
   font-size: 16px;
   color: #232360;
-  font-weight:700;
+  font-weight: 700;
 }
+
 .message-item p {
   margin: 3px 0 0;
   font-style: bold;
@@ -183,6 +200,7 @@ hr {
   letter-spacing: 0%;
   color: #768396;
 }
+
 .task-input {
   width: 96%;
   padding: 12px;
@@ -190,11 +208,13 @@ hr {
   background-color: #f2f5f9;
   margin: 8px 0 15px;
 }
+
 .emoji-row span {
   font-size: 20px;
   margin-right: 10px;
   cursor: pointer;
 }
+
 .emoji-container {
   display: flex;
   gap: 14px;
@@ -206,20 +226,23 @@ hr {
 }
 
 .emoji-container::-webkit-scrollbar {
-  display: none; 
+  display: none;
 }
+
 .collab-title {
   margin-top: 40px;
   font-size: 13px;
   color: #768396;
   font-weight: 500;
 }
+
 .collab-row {
   display: flex;
   align-items: center;
   gap: 15px;
   margin-top: 10px;
 }
+
 .collab-chip {
   display: flex;
   align-items: center;
@@ -229,26 +252,30 @@ hr {
   font-size: 13px;
   color: white;
 }
+
 .collab-chip img {
   width: 18px;
   height: 18px;
   border-radius: 50%;
 }
+
 .collab-chip.purple {
   background: #E8E8FF;
   color: #5051F9;
   font-weight: 500;
-  width:94px;
-  height:35px;
+  width: 94px;
+  height: 35px;
 }
+
 .collab-chip.blue {
   background: #E5F5FF;
   color: #1EA7FF;
   font-weight: 500;
-  width:94px;
-  height:35px;
+  width: 94px;
+  height: 35px;
 }
-.add-btn{
+
+.add-btn {
   width: 35px;
   height: 35px;
   border-radius: 50%;
@@ -262,11 +289,12 @@ hr {
   font-size: 20px;
   color: #232360;
 }
+
 .arrow-btn {
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background:none;
+  background: none;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -275,30 +303,34 @@ hr {
   padding: 0;
   font-size: 24px;
   color: #4f46e5;
-  margin-top:20px;
+  margin-top: 20px;
 }
+
 .emoji-wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 16px;
 }
+
 .emoji-container {
   display: flex;
   gap: 14px;
   font-size: 22px;
 }
+
 .arrow-btn {
   background: none;
   border: none;
   padding: 0;
   font-size: 22px;
-  color: #4f46e5;   
+  color: #4f46e5;
   cursor: pointer;
 }
+
 .arrow-btn-right-arrow {
-    background:#5051F9;
-    color:white;
+  background: #5051F9;
+  color: white;
   border: none;
   border-radius: 50%;
   width: 36px;
@@ -314,10 +346,11 @@ hr {
 
 .button-row {
   display: flex;
-  gap: 12px; 
+  gap: 12px;
 }
-.project-button{
-background: #5051F9;
+
+.project-button {
+  background: #5051F9;
   color: white;
   border: none;
   border-radius: 16px;
@@ -327,9 +360,10 @@ background: #5051F9;
   align-items: center;
   justify-content: center;
   font-size: 16px;
-  width: 200px;      
-  height: 35px;   
+  width: 200px;
+  height: 35px;
 }
+
 .task-button {
   background: #5051F9;
   color: white;
@@ -341,12 +375,12 @@ background: #5051F9;
   align-items: center;
   justify-content: center;
   font-size: 16px;
-  width: 200px;      
-  height: 35px;      
+  width: 200px;
+  height: 35px;
 }
 
 .project-button {
-  margin-bottom: 0; 
+  margin-bottom: 0;
 }
 
 .project-list-box {
@@ -409,10 +443,11 @@ background: #5051F9;
   padding: 15px;
   color: gray;
 }
+
 .project-list-box ul {
-  list-style: none; 
-  padding-left: 0;  
-  margin: 0;        
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
 }
 
 .icon-active {
@@ -420,8 +455,9 @@ background: #5051F9;
   padding: 4px;
   opacity: 1;
 }
-.icon-active:hover{
-   background-color: #e5e7eb;
+
+.icon-active:hover {
+  background-color: #e5e7eb;
 }
 
 .icon-inactive {
@@ -441,7 +477,6 @@ background: #5051F9;
   display: flex;
   gap: 12px;
   background: white;
-  /* padding: 12px; */
   border-radius: 10px;
   cursor: pointer;
   border: 1px solid #e5e7eb;
@@ -450,7 +485,7 @@ background: #5051F9;
 }
 
 .project-card:hover {
-  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
 }
 
 .project-icon {
@@ -467,6 +502,7 @@ background: #5051F9;
   margin-top: 4px;
   color: #374151;
 }
+
 .project-icon img {
   width: 35px;
   height: 35px;
@@ -479,44 +515,46 @@ background: #5051F9;
   vertical-align: middle;
 }
 
-.right-panel::-webkit-scrollbar{
+.right-panel::-webkit-scrollbar {
   width: 6px;
 }
-.right-panel ::-webkit-scrollbar-thumb{
-background: #d1d5db;
-border-radius: 6px;
+
+.right-panel ::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 6px;
 }
 
 .invite-user-list {
-  /* background: white; */
   border: 1px solid #ddd;
   border-radius: 8px;
   margin-top: 10px;
   max-height: 150px;
   overflow-y: auto;
-  color:black;
+  color: black;
 }
 
 .invite-card {
   position: absolute;
-  top: 100%;       
-  left: 0;         
+  top: 100%;
+  left: 0;
   margin-top: 6px;
   width: 180px;
   background: white;
   border-radius: 8px;
-  box-shadow: 0px 4px 12px rgba(0,0,0,0.15);
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
   padding: 8px 0;
   z-index: 10;
-  margin-left:170px;
+  margin-left: 170px;
 }
+
 .invite-user {
   padding: 8px 12px;
   cursor: pointer;
   font-size: 14px;
   z-index: 4;
 }
-.invite-wrapper{
+
+.invite-wrapper {
   position: relative;
 }
 
@@ -525,6 +563,7 @@ border-radius: 6px;
   font-size: 13px;
   color: gray;
 }
+
 @media (max-width: 1200px) {
   .right-panel {
     width: 300px;
@@ -537,7 +576,7 @@ border-radius: 6px;
 
 @media (max-width: 900px) {
   .right-panel {
-    display: none; 
+    display: none;
   }
 
   .dashboard-main {
