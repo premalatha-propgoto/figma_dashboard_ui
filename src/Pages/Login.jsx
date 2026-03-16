@@ -21,7 +21,7 @@ function Login() {
     if (!email || !password || !role) {
       setError("All fields are required!");
       return;
-    }                                                                                                                                                                  
+    }
     setError("");
     try {
       const res = await fetch("http://localhost:5000/api/login", {

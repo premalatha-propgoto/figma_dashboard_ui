@@ -1,42 +1,51 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ChartContainer } from "./chart";
 import "./TaskChart.css";
-const monthlyData = [
-  { month: "May", New: 100, Completed: 50 },
-  { month: "Jun", New: 110, Completed: 200 },
-  { month: "Jul", New: 200, Completed: 50 },
-  { month: "Aug", New: 300, Completed: 380 },
-  { month: "Sep", New: 90, Completed: 250 },
-  { month: "Oct", New: 220, Completed: 180 },
-  { month: "Nov", New: 40, Completed: 260 },
-  { month: "Dec", New: 60, Completed: 180 },
-  { month: "Jan", New: 140, Completed: 310 },
-  { month: "Feb", New: 80, Completed: 210 },
-  { month: "Mar", New: 160, Completed: 160 },
-  { month: "Apr", New: 120, Completed: 50 },
-];
+
 function TaskChart() {
-  const [active, setActive] = useState("Monthly");
+  const [temperatureData, setTemperatureData] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const CITY_NAME = "Chennai";        
+    const API_KEY = "16ac75e67e49906f8534a15e56c6a1c5";     
+
+    fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${CITY_NAME}&units=metric&cnt=12&appid=${API_KEY}`)
+      .then(res => {
+        if (!res.ok) throw new Error(`API error: ${res.status}`);
+        return res.json();
+      })
+      .then(data => {
+        const tempData = data.list.map(item => ({
+          date: item.dt_txt.split(" ")[0], 
+          Temperature: item.main.temp,     
+        }));
+        setTemperatureData(tempData);
+        setLoading(false);
+      })
+      .catch(err => {
+        console.error("API failed:", err);
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading) return <div>Loading temperature data...</div>;
+
   return (
-    <div className="task-chart">
+    <div className="task-chart" style={{ width: "100%", height: "400px" }}>
       <div className="chart-header">
-        <h3>Task Done</h3>
-        <div className="chart-tabs">
-          {["Daily", "Weekly", "Monthly"].map((tab) => (
-            <span
-              key={tab}
-              onClick={() => setActive(tab)}
-              className={active === tab ? "active" : ""}
-            >
-              {tab}
-            </span>
-          ))}
-        </div>
+        <h3>Temperature Forecast</h3>
       </div>
-      <ChartContainer data={monthlyData} height={300} />
+      <ChartContainer
+        data={temperatureData}
+        height={300}
+        dataKey="Temperature"
+        xKey="date"
+      />
     </div>
   );
 }
+
 export default TaskChart;

@@ -1,17 +1,17 @@
 .dashboard-container {
-  display: flex;
+  display: grid;
+  grid-template-columns: 90px 1fr 300px; 
   height: 100vh;
   width: 100%;
   overflow: hidden;
+  background-color: #F3F4F8;
 }
 
 .dashboard-main {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  margin-left: 90px;
-  background-color: #F3F4F8;
-  padding-right: 400px;
+  display: grid;
+  grid-template-rows: auto 1fr auto; 
+  gap: 20px;
+  padding: 30px 20px;
   overflow-y: auto;
 }
 
@@ -19,31 +19,24 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 30px;
-  padding: 30px;
-  margin-top: 90px;
-  margin-left: 12px;
 }
 
-.chart-section {
+.taskchart-section {
+  display: grid;           
+  grid-template-columns: 1fr; 
   width: 100%;
-  display: flex;
+}
+
+.task-chart {
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 16px;
+  width: 100%;             
+  height: 400px;
 }
 
 .task-section {
+  display: grid;
+  gap: 12px;
   padding: 0 10px;
-  margin: 0px 16px 0px 22px;
-}
-
-.task-title {
-  font-size: 20px;
-  font-weight: 700;
-  /* margin-bottom: 12px; */
-  color: #232360;
-  margin-left: 20px;
-}
-
-.task-list {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
 }

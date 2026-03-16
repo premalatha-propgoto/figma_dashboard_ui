@@ -7,6 +7,7 @@ import Taskitem from "../components/Taskitem";
 import TaskChart from "../components/TaskChart";
 
 import "./Dashboard.css";
+
 import icon1 from "../assets/Group 16.png";
 import icon2 from "../assets/msg.png";
 import icon3 from "../assets/info.png";
@@ -18,38 +19,33 @@ import graph3 from "../assets/graph3.svg";
 function Dashboard() {
   const [projects, setProjects] = useState([]);
   const [tasks, setTasks] = useState([]);
+
   const fetchProjects = async () => {
     try {
       const res = await fetch("http://localhost:5000/api/project_list", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
       });
-
       const data = await res.json();
-
-      if (data.projects) {
-        setProjects(data.projects);
-      }
+      if (data.projects) setProjects(data.projects);
     } catch (err) {
       console.error("Error fetching projects:", err);
     }
   };
+
   const fetchTasks = async () => {
     try {
       const res = await fetch("http://localhost:5000/api/task_list", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
       });
-
       const data = await res.json();
-
-      if (data.tasks) {
-        setTasks(data.tasks);
-      }
+      if (data.tasks) setTasks(data.tasks);
     } catch (err) {
       console.error("Error fetching tasks:", err);
     }
   };
+
   useEffect(() => {
     fetchProjects();
     fetchTasks();
@@ -57,11 +53,14 @@ function Dashboard() {
 
   return (
     <div className="dashboard-container">
+    
       <Sidebar />
 
+   
       <div className="dashboard-main">
         <Topbar />
 
+       
         <div className="stats-row">
           <StatsCard
             icon={icon1}
@@ -71,7 +70,6 @@ function Dashboard() {
             growthColor="green"
             graphImage={graph1}
           />
-
           <StatsCard
             icon={icon2}
             title="New Task"
@@ -80,7 +78,6 @@ function Dashboard() {
             growthColor="#4ec522"
             graphImage={graph2}
           />
-
           <StatsCard
             icon={icon3}
             title="Projects Done"
@@ -91,13 +88,14 @@ function Dashboard() {
           />
         </div>
 
+        
         <div className="taskchart-section">
           <TaskChart />
         </div>
 
+        
         <div className="task-section">
-          <h3 className="task-title">Task</h3>
-
+          <h3 className="task-title">Tasks</h3>
           {tasks.length === 0 ? (
             <p>No tasks available</p>
           ) : (
@@ -120,6 +118,7 @@ function Dashboard() {
           )}
         </div>
       </div>
+
       <RightPanel
         projects={projects}
         fetchProjects={fetchProjects}
