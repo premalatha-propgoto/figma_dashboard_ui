@@ -30,13 +30,6 @@
   border-radius: 50%;
 }
 
-.task-play img {
-  width: 48px;
-  height: 48px;
-  align-items: center;
-  justify-content: center;
-}
-
 .task-meta {
   display: flex;
   flex-direction: column;
@@ -46,7 +39,7 @@
 .start-label {
   font-size: 14px;
   font-weight: 600;
-  margin: 0;
+  margin: 5px;
 }
 
 .time {

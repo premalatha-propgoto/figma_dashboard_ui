@@ -1,54 +1,121 @@
+/* Background overlay */
 .modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.45);
+  background: rgba(0, 0, 0, 0.55);
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   z-index: 2000;
 }
 
+/* Modal container */
 .modal-box {
   background: white;
-  padding: 20px;
-  width: 350px;
-  border-radius: 10px;
+  width: 420px;
+  padding: 28px;
+  border-radius: 12px;
+  box-shadow: 0px 12px 35px rgba(0, 0, 0, 0.2);
   position: relative;
+  animation: modalFade 0.25s ease;
 }
 
-.modal-body {
-  margin-top: 15px;
+/* Title */
+.modal-title {
+  margin: 0 0 20px 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #111827;
 }
 
+/* Close icon */
 .modal-close {
   position: absolute;
   top: 12px;
-  right: 12px;
-  background: transparent;
+  right: 14px;
   border: none;
-  font-size: 18px;
+  background: transparent;
+  font-size: 20px;
   cursor: pointer;
+  color: #6b7280;
 }
 
-.modal-box input,
-.modal-box textarea,
-.modal-box select {
-  width: 97%;
-  padding: 8px;
-  margin-bottom: 12px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
+.modal-close:hover {
+  color: #111;
 }
 
+/* Modal body */
+.modal-body {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Labels */
+.modal-body label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 6px;
+}
+
+/* Same input style for everything */
+.modal-body input,
+.modal-body textarea,
+.modal-body select {
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 16px;
+  border-radius: 8px;
+  border: 2px solid #374151;
+  font-size: 14px;
+  outline: none;
+  box-sizing: border-box;
+  transition: 0.2s;
+}
+
+/* Focus effect */
+.modal-body input:focus,
+.modal-body textarea:focus,
+.modal-body select:focus {
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.15);
+}
+
+/* Textarea */
+.modal-body textarea {
+  min-height: 80px;
+  resize: none;
+}
+
+/* Submit button */
 .close-btn {
   width: 100%;
-  padding: 10px;
+  padding: 11px;
+  border: none;
+  border-radius: 8px;
   background: #4f46e5;
   color: white;
-  border: none;
-  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 500;
   cursor: pointer;
+  transition: 0.2s;
+}
+
+.close-btn:hover {
+  background: #4338ca;
+}
+
+/* Animation */
+@keyframes modalFade {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

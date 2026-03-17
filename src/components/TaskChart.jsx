@@ -9,8 +9,8 @@ function TaskChart() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const CITY_NAME = "Chennai";        
-    const API_KEY = "16ac75e67e49906f8534a15e56c6a1c5";     
+    const CITY_NAME = "Chennai";
+    const API_KEY = "16ac75e67e49906f8534a15e56c6a1c5";
 
     fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${CITY_NAME}&units=metric&cnt=12&appid=${API_KEY}`)
       .then(res => {
@@ -19,8 +19,11 @@ function TaskChart() {
       })
       .then(data => {
         const tempData = data.list.map(item => ({
-          date: item.dt_txt.split(" ")[0], 
-          Temperature: item.main.temp,     
+          date: new Date(item.dt_txt).toLocaleTimeString([], {
+            hour: "2-digit",
+            minute: "2-digit",
+          }),
+          Temperature: item.main.temp,
         }));
         setTemperatureData(tempData);
         setLoading(false);
@@ -34,7 +37,7 @@ function TaskChart() {
   if (loading) return <div>Loading temperature data...</div>;
 
   return (
-    <div className="task-chart" style={{ width: "100%", height: "400px" }}>
+    <div className="task-chart" style={{ height: "400px" }}>
       <div className="chart-header">
         <h3>Temperature Forecast</h3>
       </div>

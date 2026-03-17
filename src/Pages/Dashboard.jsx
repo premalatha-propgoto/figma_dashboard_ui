@@ -53,14 +53,14 @@ function Dashboard() {
 
   return (
     <div className="dashboard-container">
-    
+
       <Sidebar />
 
-   
+
       <div className="dashboard-main">
         <Topbar />
 
-       
+
         <div className="stats-row">
           <StatsCard
             icon={icon1}
@@ -88,12 +88,12 @@ function Dashboard() {
           />
         </div>
 
-        
+
         <div className="taskchart-section">
           <TaskChart />
         </div>
 
-        
+
         <div className="task-section">
           <h3 className="task-title">Tasks</h3>
           {tasks.length === 0 ? (
